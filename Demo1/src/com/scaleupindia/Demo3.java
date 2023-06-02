@@ -2,28 +2,37 @@ package com.scaleupindia;
 
 import java.util.Optional;
 
-/**
- * @author abhishekvermaa10
- *
- */
+import com.scaleupindia.entity.Employee;
+import com.scaleupindia.utility.GeneratorUtil;
+
 public class Demo3 {
+
 	public static void main(String[] args) {
-		add(Optional.of(100), Optional.empty());
-		add(Optional.of(100), Optional.of(200));
-		// add(Optional.of(100), Optional.of(null));
-		add(Optional.ofNullable(100), Optional.ofNullable(200));
-		add(Optional.ofNullable(100), Optional.ofNullable(null));
+		Optional<Employee> optionalEmployee = GeneratorUtil.fetchEmployeeByMarks(95);
+		System.out.println(optionalEmployee);
+
+		/*
+		 * Fetch value from optionalEmployee or else throw exception.
+		 */
+		System.out.println("---OR ELSE THROW---");
+		try {
+			Employee employee = optionalEmployee.orElseThrow();
+			System.out.println(employee);
+		} catch (Exception exception) {
+			System.out.println(exception);
+		}
+
+		/*
+		 * Fetch value from optionalEmployee or else throw NoSuchElementException with
+		 * message as "No employee found".
+		 */
+		System.out.println("---OR ELSE THROW---");
+		try {
+			Employee employee = optionalEmployee.orElseThrow(() -> new ArithmeticException("No employee found"));
+			System.out.println(employee);
+		} catch (Exception exception) {
+			System.out.println(exception);
+		}
 	}
 
-	public static void add(Optional<Integer> num1, Optional<Integer> num2) {
-		int a = 0;
-		int b = 0;
-		if (num1.isPresent()) {
-			a = num1.get();
-		}
-		if (num2.isPresent()) {
-			b = num2.get();
-		}
-		System.out.println(num1 + " + " + num2 + " = " + (a + b));
-	}
 }

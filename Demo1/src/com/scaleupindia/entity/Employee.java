@@ -1,21 +1,22 @@
 package com.scaleupindia.entity;
 
-import java.util.Optional;
-
-/**
- * @author abhishekvermaa10
- *
- */
 public class Employee {
 	private int id;
 	private String name;
-	private Optional<Passport> passport;
+	private int marks;
+	
+	public Employee() {
+		super();
+		this.id = 100;
+		this.name = "ScaleUp India";
+		this.marks = 100;
+	}
 
-	public Employee(int id, String name, Optional<Passport> passport) {
+	public Employee(int id, String name, int marks) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.passport = passport;
+		this.marks = marks;
 	}
 
 	public int getId() {
@@ -26,12 +27,12 @@ public class Employee {
 		return name;
 	}
 
-	public Optional<Passport> getPassport() {
-		return passport;
+	public int getMarks() {
+		return marks;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", passport=" + passport + "]";
+		return "Employee [id=" + id + ", name=" + name + ", marks=" + marks + "]";
 	}
 }

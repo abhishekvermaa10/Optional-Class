@@ -1,2 +1,5 @@
-Demo0 - Without Optional class
-Demo1 - With Optional class
+Demo0 - Identify need of Optional Class
+Demo1 - Methods to retrieve value from Optional Value: get(), orElse(), orElseGet(), orElseThrow()
+Demo2 - Methods to check if value exists in Optional Value: isEmpty(), isPresent(), ifPresent(), ifPresentOrElse()
+Demo3 - Methods to generate Optional Value: of(), ofNullable(), empty()
+Demo4 - Methods to manipulate Optional Value: filter(), map(), flatMap(), or(), stream()
